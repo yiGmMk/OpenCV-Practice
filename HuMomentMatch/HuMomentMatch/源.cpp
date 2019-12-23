@@ -9,15 +9,18 @@
 using namespace  std;
 using namespace  cv;
 
+
+
 int main() {
 	resizeWindow("SourceImage", 800, 600);
 	cv::Mat templateImg;	
 	cv::Mat sourceImg=imread("MarkImg_0.bmp",IMREAD_GRAYSCALE);
-	resizeWindow("SourceImage", 800, 600);
-	imshow("SourceImage", sourceImg);
+	Mat showSrc = sourceImg.clone();
+	resize(showSrc, showSrc, Size(), 0.2, 0.2);
+	imshow("SourceImage", showSrc);
 	waitKey(0);
 
-	templateImg.zeros(100,100,CV_8UC3);
+	templateImg.zeros(500,500,CV_8UC3);
 	Rect roi(Point(1500, 1500), Point(2000, 2000));
 	sourceImg(roi).copyTo(templateImg);
 	imshow("template",templateImg);
