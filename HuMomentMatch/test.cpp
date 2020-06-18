@@ -9,8 +9,6 @@
 using namespace std;
 using namespace cv;
 
-
-
 static std::string prefix = "E:/GitRepo/OpenCV-Practice/HuMomentMatch/test/";
 
 // NMS, got from cv::dnn so we don't need opencv contrib
@@ -524,8 +522,7 @@ void view_angle(){
     cv::waitKey(0);
 }
 
-int main(){
-
+int main() {
     MIPP_test();
     angle_test("test"); // test or train
     return 0;
